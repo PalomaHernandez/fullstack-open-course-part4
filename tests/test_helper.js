@@ -1,3 +1,4 @@
+const config = require('../utils/config')
 const Blog = require('../models/blog')
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
@@ -54,7 +55,7 @@ const createTestUserAndToken = async () => {
     id: savedUser._id
   }
 
-  const token = jwt.sign(userForToken, process.env.SECRET)
+  const token = jwt.sign(userForToken, config.SECRET)
 
   return{ user: savedUser, token }
 }
